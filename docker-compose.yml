@@ -14,8 +14,8 @@ services:
     container_name: backend
     ports:
       - "8000:8000"
-    environment:
-      - MONGO_URL=mongodb://mongo:27017
+    env_file:
+      - ./backend/.env
     depends_on:
       - mongo
 
