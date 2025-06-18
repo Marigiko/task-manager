@@ -1,3 +1,4 @@
+```mermaid
 flowchart TD
     %% Estilo del diagrama para mayor claridad
     classDef block fill:#ffffff,stroke:#4b5563,stroke-width:2px,color:#111,font-size:14px;
