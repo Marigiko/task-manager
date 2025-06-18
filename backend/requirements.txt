@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+motor
+pymongo
+python-jose[cryptography]
+passlib[bcrypt]
+pydantic
+pytest
+httpx
+pytest-asyncio==0.21.0
