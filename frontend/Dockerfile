@@ -1,12 +1,12 @@
+# Etapa única con build ya hecho
 FROM node:20
 
 WORKDIR /app
 
-COPY . .
+# Copiamos el build generado localmente
+COPY build ./build
 
-RUN npm install && npm run build
-
-# Serve build using a simple HTTP server
+# Servir con serve
 RUN npm install -g serve
 
 CMD ["serve", "-s", "build", "-l", "3000"]
