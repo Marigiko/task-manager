@@ -1,12 +1,12 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Request
 from app.schemas import User
 from app.auth import get_password_hash, verify_password, create_access_token
-from app.database import db
 
 router = APIRouter(prefix="/users", tags=["users"])
 
 @router.post("/signup")
-async def signup(user: User):
+async def signup(user: User, request: Request):
+    db = request.app.database
     user_exist = await db.users.find_one({"username": user.username})
     if user_exist:
         raise HTTPException(status_code=400, detail="Usuario ya existe")
@@ -15,7 +15,8 @@ async def signup(user: User):
     return {"msg": "Usuario creado"}
 
 @router.post("/login")
-async def login(user: User):
+async def login(user: User, request: Request):
+    db = request.app.database
     db_user = await db.users.find_one({"username": user.username})
     if not db_user or not verify_password(user.password, db_user["password"]):
         raise HTTPException(status_code=401, detail="Credenciales inválidas")

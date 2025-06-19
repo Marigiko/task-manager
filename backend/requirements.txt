@@ -3,8 +3,10 @@ uvicorn
 motor
 pymongo
 python-jose[cryptography]
-passlib[bcrypt]
+#passlib[bcrypt]
 pydantic
 pytest
 httpx
 pytest-asyncio==0.21.0
+bcrypt==4.0.1
+passlib==1.7.4
