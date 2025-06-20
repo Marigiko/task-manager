@@ -5,6 +5,7 @@ import logging
 from motor.motor_asyncio import AsyncIOMotorClient
 from contextlib import asynccontextmanager
 import os
+import sys
 
 logging.basicConfig(
     level=logging.INFO,
